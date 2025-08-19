@@ -1,11 +1,16 @@
 mod binary_search;
+mod bogo_sort;
 mod bubble_sort;
-mod linked_list;
-mod reverse_linked_list;
+mod string_reverser;
+// mod linked_list;
+// mod reverse_linked_list;
 
 use crate::binary_search::binary_search;
+use crate::bogo_sort::bogo_sort;
 use crate::bubble_sort::bubble_sort;
-use crate::linked_list::LinkedList;
+use crate::string_reverser::reverse_string;
+
+// use crate::linked_list::LinkedList;
 // use crate::reverse_linked_list::reverse;
 
 fn main() {
@@ -13,7 +18,7 @@ fn main() {
     // LinkedList list = new LinkedList();
 
     // ------------------------------------ O(n) ------------------------------------ //
-    let sorted_array: [i32; 10] = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
+    let mut sorted_array: [i32; 10] = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
 
     let target = 2;
     match binary_search(&sorted_array, target) {
@@ -31,6 +36,16 @@ fn main() {
     let mut my_array = [24, 34, 11, 35, 68, 90, 75, 111, 67, 150];
     bubble_sort(&mut my_array);
     println!("Sorted array: {my_array:?}");
+
+    //----------------------------- O(n!) ----------------------------- //
+    bogo_sort(&mut sorted_array);
+    println!("Sorted array: {:?}", sorted_array);
+
+    //----------------------------- String Reverser med Stack ----------------------------- //
+    let original = "Hello, Rust!";
+    let reversed = reverse_string(original);
+    println!("Original: {}", original);
+    println!("Reversed: {}", reversed);
 }
 
 // fn big_o_testing() {
