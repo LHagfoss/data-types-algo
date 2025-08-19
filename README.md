@@ -1,0 +1,1 @@
+# Lucas notater fra kurset om 
